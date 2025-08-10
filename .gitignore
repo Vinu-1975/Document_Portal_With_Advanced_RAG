@@ -12,3 +12,6 @@ venv
 .env
 
 p1_document_portal.egg-info
+
+logs/
+test.py
