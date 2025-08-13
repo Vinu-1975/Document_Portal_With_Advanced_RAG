@@ -11,7 +11,7 @@ from exception.custom_exception import DocumentPortalException
 
 log = CustomLogger().get_logger(__name__)
 
-class Model_Loader:
+class ModelLoader:
     """
     A utility class to load embedding models and llm models
     """
