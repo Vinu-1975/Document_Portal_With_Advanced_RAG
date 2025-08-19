@@ -9,5 +9,8 @@ faiss-cpu
 structlog
 PyMuPDF
 pandas
+streamlit
+langchain_core[tracing]
+pytest
 
 -e .

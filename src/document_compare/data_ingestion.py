@@ -3,41 +3,29 @@ from pathlib import Path
 import fitz
 from logger.custom_logger import CustomLogger
 from exception.custom_exception import DocumentPortalException
+from datetime import datetime
+import uuid
 
 class DocumentIngestion:
-    def __init__(self, base_dir):
+    """
+    Handle saving, reading and combining of PDFs for comparison with session-based versioning.
+    """
+    def __init__(self, base_dir:str = "data\\document_compare", session_id=None):
         self.log = CustomLogger().get_logger(__name__)
         self.base_dir = Path(base_dir)
+        self.session_id = session_id or f"session_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+        self.session_path = self.base_dir / self.session_id
         self.base_dir.mkdir(parents=True, exist_ok=True)
 
-
-    def delete_existing_files(self):
-        """
-        Deletes the existing file at the specified path
-        """
-        try:
-            if self.base_dir.exists() and self.base_dir.is_dir():
-                for file in self.base_dir.iterdir():
-                    if file.is_file():
-                        file.unlink()
-                        self.log.info("File deleted", path=str(file))
-                self.log.info("directory cleaned",directory=str(self.base_dir))
-        except Exception as e:
-            self.log.error(f"Error in delete_existing_file: {e}")
-            raise DocumentPortalException("Error in delete_existing_file", sys)
-
-
+        self.log.info(f"DocumentIngestion initialized", session = str(self.session_id))
 
     def save_uploaded_file(self,reference_file,actual_file):
         """
         Saves the uploaded file to the specified path.
         """
         try:
-            self.delete_existing_files()
-            self.log.info("Existing files deleted successfully")
-
-            ref_path = self.base_dir / reference_file
-            act_path = self.base_dir / actual_file
+            ref_path = self.base_dir / reference_file.name
+            act_path = self.base_dir / actual_file.name
 
             if not reference_file.name.endswith(".pdf") or not actual_file.name.endswith(".pdf"):
                 raise ValueError("Only PDFs are allowed")
@@ -78,5 +66,39 @@ class DocumentIngestion:
             raise DocumentPortalException("Error in read_pdf", sys)
 
 
+    def combine_documents(self)->str:
+        try:
+            content_dict = {}
+            doc_parts = []
 
-    
+            for filename in sorted(self.base_dir.iterdir()):
+                if filename.is_file() and filename.suffix == ".pdf":
+                    content_dict[filename.name] = self.read_pdf(filename)
+            for filename, content in content_dict.items():
+                doc_parts.append(f"Document: {filename}\n{content}\n")
+            return "\n".join(doc_parts)
+        except Exception as e:
+            self.log.error(f"Error in combine_documents: {e}")
+            raise DocumentPortalException("Error in combine_documents", sys)
+
+
+    def clean_old_sessions(self, keep_latest: int = 3):
+        """
+        Optional method to delete older session folders, keeping only the latest N.
+        """
+        try:
+            session_folders = sorted(
+                [f for f in self.base_dir.iterdir() if f.is_dir()],
+                reverse=True
+            )
+            for folder in session_folders[keep_latest]:
+                for file in folder.iterdir():
+                    file.unlink()
+                folder.rmdir()
+                self.log.info("Old session folder deleted", folder = str(folder))
+
+        except Exception as e:
+            self.log.error(f"Error in clean_old_sessions: {e}")
+            raise DocumentPortalException("Error in clean_old_sessions", sys)
+
+

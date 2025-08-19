@@ -22,7 +22,7 @@ class DocumentComparatorLLM:
             llm=self.llm
         )
         self.prompt = PROMPT_REGISTRY["document_comparison"]
-        self.chain = self.prompt | self.llm | self.parser | self.fixing_parser
+        self.chain = self.prompt | self.llm | self.parser
         self.log.info("DocumentComparatorLLM initialized with model and parser")
 
 
@@ -33,7 +33,7 @@ class DocumentComparatorLLM:
         try:
             inputs = {
                 "combined_docs": combined_docs,
-                "format_instructions": self.parser.get_format_instructions()
+                "format_instruction": self.parser.get_format_instructions()
             }
             self.log.info("Starting document comparison", inputs = inputs)
             response = self.chain.invoke(inputs)
