@@ -1,6 +1,7 @@
 import uuid
 from pathlib import Path
 import sys
+from datetime import datetime, timezone
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -36,7 +37,7 @@ class SingleDocIngestor:
         try:
             documents = []
             for uploaded_file in uploaded_files:
-                unique_filename = f"session_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+                unique_filename = f"session_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}.pdf"
                 temp_path = self.data_dir / unique_filename
 
                 with open(temp_path, "wb") as f_out:
