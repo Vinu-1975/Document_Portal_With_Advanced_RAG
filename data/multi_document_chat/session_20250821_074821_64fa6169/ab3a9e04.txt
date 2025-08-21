@@ -1,0 +1,112 @@
+Vinayakan V S
+Kerala, India
+Portfolio: vinayakanvs.com
+Github: github.com/vinayakan-v-s
+
+Email: vinayakanvs2003@gmail.com
+Mobile: +91 7994377697
+LinkedIn : linkedin/vinayakan-v-s
+
+Education
+•
+
+Amrita Vishwa Vidyapeetham
+B.Tech - Computer Science and Engineering
+CGPA: 7.97 / 10
+
+•
+
+Nirmala Math Central School
+CBSE
+Score: 92.4%
+
+Coimbatore, Tamil Nadu, India
+Aug 2021 - Apr 2025
+Thrissur, Kerala, India
+Jun 2019 - Apr 2021
+
+Skills
+• Languages
+
+Python, Java, Javascript, C++, C, Kotlin
+• Technologies React, React-Native, Redux, Nodejs, Express, REST APIs, Socket.io
+• Platforms
+Firebase (Auth, Firestore, Storage, Functions), GCP, Git, Github, Android Studio, Linux, Google Analytics
+
+Experience
+•
+
+Bandlr — bandlr.com
+Play Store Link
+Freelance Software Engineer (via Fiverr)
+
+Jun 2024 - Present
+
+◦ Developed event-based social chat web app (React, Node.js) deployed on GCP with CI/CD, growing to 200+ active users
+◦ Engineered companion React Native app (Android + IOS) with push notifications & geo-location features (200km radius
+event recommendations)
+◦ Leveraged Firebase suite (Firestore, Functions, Storage, Auth) for backend, data, and authentication needs.
+◦ Packaged and submitted Android app (.aab) to Google Play Store.
+◦ Technologies used: React Native, Firebase Suite, React, Redux, Node.js, GCP, Google Analytics.
+
+•
+
+Einsicht Technologies
+Frontend Intern - certificate
+
+Nov 2022 - Dec 2022
+
+◦ Engineered a user-centric CRM frontend with intuitive navigation, boosting user productivity by 35% and reducing
+support tickets by 40%
+◦ Optimized frontend performance, enhancing application responsiveness by 10% through advanced coding techniques and
+efficient resource utilization
+◦ Developed a dynamic login/signup page within 6 hours, beating the 2-day deadline by 75%
+
+Projects
+•
+
+Forgery Localization in Images and Scanned Documents — demo link
+B.Tech Final Year Project
+
+Github
+Sept 2024 - Apr 2025
+
+◦ Led a 4-person team developing a dual approach for forgery detection (general images & scanned documents).
+◦ Designed a novel ELA-CNN architecture, achieving F1: 0.57, AUC: 0.76 on CASIA v2 for image splicing/copy-move
+detection; co-authored a PEIS 2025-accepted research paper.
+◦ Enhanced document forgery detection by training YOLOv8 on a challenging Roboflow dataset, achieving mAP: 0.93 and
+precise bounding box localization with confidence scores.
+◦ Built a Flask demo app for visualizing results from both models.
+◦ Technologies used: Python, TensorFlow/Keras, PyTorch, OpenCV, Scikit-learn, Flask, Git.
+
+•
+
+ChatterSphere — demo link
+Web App
+
+Github
+Apr 2023 - Aug 2023
+
+◦ Developed a scalable real-time chat application by implementing 4+ key features—user profiles, single/group chat, image
+uploads, and WebSocket-based instant messaging
+◦ Designed and integrated over 8 RESTful APIs to enable seamless client-server communication
+◦ Implemented JWT authentication to enhance security, resulting in 300+ positive user reviews within three months
+◦ Technologies used: React, Node.js, JavaScript, MongoDB, Express.js, REST API, Socket, Cloudinary, Render, Three.js
+
+•
+
+CheckMate-Academy
+Game
+
+Github
+Sept 2023 - Dec 2023
+
+◦ Developed an advanced chess application integrating the Stockfish engine and implementing 5+ key features—including
+player vs AI, AI vs AI, hint provision, evaluation score, tutorials, and puzzles
+◦ Improved application performance by 20% through optimized threading, enhancing real-time game evaluations and user
+experience
+◦ Increased user retention by 40% by enhancing gameplay experience with advanced AI scenarios and interactive learning
+tools
+◦ Technologies used: Python, Pygame, Stockfish engine, threading
+
+
