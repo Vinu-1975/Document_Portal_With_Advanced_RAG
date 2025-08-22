@@ -6,7 +6,7 @@ from langchain_groq import ChatGroq
 from utils.config_loader import load_config
 
 from logger.custom_logger import CustomLogger
-from exception.custom_exception import DocumentPortalException
+from exception.custom_exception_archive import DocumentPortalException
 
 
 log = CustomLogger().get_logger(__name__)

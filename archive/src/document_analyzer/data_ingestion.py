@@ -3,7 +3,7 @@ import fitz  # a wrapper on top of pypdf
 import uuid  # to create unique id(s) universally [Universal Unique ID]
 from datetime import datetime
 from logger.custom_logger import CustomLogger
-from exception.custom_exception import DocumentPortalException
+from exception.custom_exception_archive import DocumentPortalException
 import sys
 
 
