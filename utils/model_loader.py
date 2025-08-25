@@ -33,7 +33,7 @@ class ModelLoader:
             log.error("Missing environment variables", missing_vars = missing)
             raise DocumentPortalException("Missing environment variables", sys)
         log.info("Environment variables validated", available_keys = [k for k in self.api_keys if self.api_keys[k]])
-    def load_embedding(self):
+    def load_embeddings(self):
         """
         Load and return the embedding model
         """
